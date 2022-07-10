@@ -15,10 +15,11 @@ import { CommentsService } from './comments/comments.service';
 import { CommentsModule } from './comments/comments.module';
 import { CardsModule } from './cards/cards.module';
 import { ColumnsModule } from './columns/columns.module';
+import { ColumnsService } from './columns/columns.service';
 
 @Module({
   imports: [AuthModule, UsersModule, CommentsModule, CardsModule, ColumnsModule],
   controllers: [AppController, UsersController, ColumnsController, CardsController, CommentsController, AuthController],
-  providers: [AppService, AuthService, UsersService, CardsService, CommentsService],
+  providers: [AppService, AuthService, UsersService, CardsService, CommentsService, ColumnsService],
 })
 export class AppModule {}
