@@ -1,4 +1,12 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class CommentsService {}
+export class CommentsService {
+  createComment() {}
+
+  deleteComment() {}
+
+  getCommentsByCardId() {}
+
+  updateComment() {}
+}
