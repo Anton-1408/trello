@@ -1,0 +1,30 @@
+version: '3.6'
+
+volumes:
+  postgres_data:
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: 'trello_bd'
+      POSTGRES_USER: 'admin'
+      POSTGRES_PASSWORD: 'Anton1408'
+      PGDATA: 'postgres_data:/var/lib/postgresql/data/pgdata'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4:5.7
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'antonvotinov@gmail.com'
+      PGADMIN_DEFAULT_PASSWORD: 'Anton1408'
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - postgres_data:/pgadmin:/var/lib/pgadmin
+    ports:
+      - '5050:80'
+    restart: always
